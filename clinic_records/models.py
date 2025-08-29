@@ -29,6 +29,12 @@ class Pictures(models.Model):
         ('4','4')
     ]
     PA = models.CharField(max_length=1, choices=PA_coices)
-    pictures_price = models.DecimalField(max_digits=9, decimal_places=0, null=True, blank=True)
-    picture_note = models.CharField(max_length=1000, default=None)
+    pictures_price = models.DecimalField(max_digits=9, decimal_places=0, null=False, blank=False)
+    picture_note = models.TextField(default=None)
     patient = models.ManyToManyField("patient")
+
+class ScalingProphy(models.Model):
+    sessions_count = models.IntegerField()
+    scalingprophy_price = models.DecimalField(max_digits=9, decimal_places=0, null=False, blank=False)
+    scalingprophy_note = models.TextField(default=None)
+    
