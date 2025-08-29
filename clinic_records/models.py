@@ -10,3 +10,20 @@ class Patient(models.Model):
 
     def __str__(self):
         return self.patient_FullName
+class Pictures(models.Model):
+    Bite_wings_choices = [
+        ('1' , '1'),
+        ('2' , '2'),
+        ('3' , '3'),
+        ('4' , '4'),
+    ]
+    bite_wings = models.CharField(max_length=1, choices=Bite_wings_choices)
+    opg = models.BooleanField(default=True)
+    PA_coices =[
+        ('1','1'),
+        ('2', '2'),
+        ('3','3'),
+        ('4','4')
+    ]
+    PA = models.CharField(max_length=1, choices=PA_coices)
+    
