@@ -11,30 +11,32 @@ class Patient(models.Model):
     def __str__(self):
         return self.patient_FullName
     
-
 class Pictures(models.Model):
-    Bite_wings_choices = [
-        ('1' , '1'),
-        ('2' , '2'),
-        ('3' , '3'),
-        ('4' , '4'),
-    ]
-    bite_wings = models.CharField(max_length=1, choices=Bite_wings_choices)
+    bite_wing1 = models.BooleanField(null=True, blank=True)
+    bite_wing2 = models.BooleanField(null=True, blank=True)
+    bite_wing3 = models.BooleanField(null=True, blank=True)
+    bite_wing4 = models.BooleanField(null=True, blank=True)
+
+    PA1 = models.CharField(max_length=1, null=True, blank=False)
+    PA2 = models.CharField(max_length=1, null=True, blank=False)
+    PA3 = models.CharField(max_length=1, null=True, blank=False)
+    PA4 = models.CharField(max_length=1, null=True, blank=False)
+
     opg = models.BooleanField(default=True)
     photo =  models.BooleanField(default=True)
-    PA_coices =[
-        ('1','1'),
-        ('2', '2'),
-        ('3','3'),
-        ('4','4')
-    ]
-    PA = models.CharField(max_length=1, choices=PA_coices)
-    pictures_price = models.DecimalField(max_digits=9, decimal_places=0, null=False, blank=False)
+    pictures_price = models.DecimalField(max_digits=9, decimal_places=0, null=True, blank=True)
     picture_note = models.TextField(default=None)
     patient = models.ManyToManyField("patient")
 
+    def __str__(self):
+        return f"{self.pictures_price} - self.patient.patient_FullName"
+
 class ScalingProphy(models.Model):
-    sessions_count = models.IntegerField()
+    count_session_choice = [
+        ('one','one session'),
+        ('two', 'two sessions')
+    ]
+    sessions_count = models.BooleanField(choices=count_session_choice)
     scalingprophy_price = models.DecimalField(max_digits=9, decimal_places=0, null=False, blank=False)
     scalingprophy_note = models.TextField(default=None)
     
