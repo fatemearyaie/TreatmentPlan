@@ -5,7 +5,7 @@ class PatientAdmin(admin.ModelAdmin):
     list_display = ['case_id', 'patient_FullName', 'visit_date', 'disease']
 
 class PicturesAdmin(admin.ModelAdmin):
-    list_display = ['opg', 'photo']
+    list_display = ['pictures_price']
 class ScalingProphyAdmin(admin.ModelAdmin):
     list_display = ['scalingprophy_price', 'sessions_count']
 
