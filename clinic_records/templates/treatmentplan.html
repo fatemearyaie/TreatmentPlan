@@ -69,19 +69,19 @@
       <div class="row mb-3">
         <div class="col-md-3">
           <label class="form-label">شماره پرونده:</label>
-          <input type="text" class="form-control">
+          {{ patient_form.case_id }}
         </div>
         <div class="col-md-3">
           <label class="form-label">تاریخ:</label>
-          <input type="date" class="form-control">
+          {{ patient_form.visit_date }}
         </div>
         <div class="col-md-3">
           <label class="form-label">نام و نام خانوادگی:</label>
-          <input type="text" class="form-control">
+          {{ patient_form.patient_FullName }}
         </div>
         <div class="col-md-3">
           <label class="form-label">بیماری سیستماتیک:</label>
-          <input type="text" class="form-control">
+          {{ patient_form.disease }}
         </div>
       </div>
     </div>
@@ -91,11 +91,11 @@
     <!-- Photo -->
     <div class="col-md-4 d-flex align-items-center">
       <div class="form-check form-check-inline">
-        <input type="checkbox" class="form-check-input" checked>
+        {{ pictures_form.photo }}
         <label class="form-check-label">Photo</label>
       </div>
       <div class="form-check form-check-inline">
-        <input type="checkbox" class="form-check-input" checked>
+        {{ pictures_form.opg }}
         <label class="form-check-label">OPG</label>
       </div>
     </div>
@@ -104,10 +104,10 @@
     <div class="col-md-4">
       <label class="form-label">Bite Wing:</label>
       <div class="grid-2">
-        <label><input type="checkbox"></label>
-        <label><input type="checkbox"></label>
-        <label><input type="checkbox"></label>
-        <label><input type="checkbox"></label>
+        <label>{{ pictures_form.bite_wing1 }}</label>
+        <label>{{ pictures_form.bite_wing2 }}</label>
+        <label>{{ pictures_form.bite_wing3 }}</label>
+        <label>{{ pictures_form.bite_wing4 }}</label>
       </div>
     </div>
 
@@ -115,10 +115,10 @@
     <div class="col-md-4">
       <label class="form-label">PA:</label>
       <div class="grid-2">
-        <input type="text" class="form-control" placeholder="PA1">
-        <input type="text" class="form-control" placeholder="PA2">
-        <input type="text" class="form-control" placeholder="PA3">
-        <input type="text" class="form-control" placeholder="PA4">
+        {{ pictures_form.PA1 }}
+        {{ pictures_form.PA2 }}
+        {{ pictures_form.PA3 }}
+        {{ pictures_form.PA4 }}
       </div>
     </div>
 
@@ -126,14 +126,14 @@
 <div class="row mb-3">
   <div class="col-md-4">
     <label class="form-label">Charge:</label>
-    <input type="text" class="form-control text-end">
+    {{ pictures_form.pictures_price }}
   </div>
 
 
 
   <div class="col-md-4">
     <label class="form-label">Note:</label>
-    <textarea class="form-control" rows="2"></textarea>
+    {{ pictures_form.picture_note }}
   </div>
 </div>
 
@@ -153,7 +153,7 @@
     <div class="form-section-title">Scaling & Prophy</div>
     <div class="mb-3">
       <div class="form-check form-check-inline">
-        <input type="radio" name="session" class="form-check-input">
+        {{ scalingprophy_form.sessions_count }}
         <label class="form-check-label">One Session</label>
       </div>
       <div class="form-check form-check-inline">
@@ -176,7 +176,7 @@
 
   <!-- Buttons -->
   <div class="text-center">
-    <button class="btn btn-success btn-custom">ذخیره</button>
+    <button class="btn btn-success btn-custom" type='submit'>ذخیره</button>
       <button class="btn btn-warning btn-custom">محاسبه</button>
     <button class="btn btn-danger btn-custom">پاک کردن</button>
     <button class="btn btn-primary btn-custom">پرینت</button>
